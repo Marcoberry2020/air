@@ -7,12 +7,15 @@ app.use(express.json());
 app.use(cors());
 
 // MySQL connection
+require('dotenv').config();
+
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",  // Replace with your MySQL username
-  password: "marcoberry2020",  // Replace with your MySQL password
-  database: "real_estate",  // Use your database name
+  host: process.env.localHost,
+  user: process.env.root,
+  password: process.env.marcoberry2020,
+  database: process.env.real_estate,
 });
+
 
 // Connect to MySQL
 db.connect((err) => {
